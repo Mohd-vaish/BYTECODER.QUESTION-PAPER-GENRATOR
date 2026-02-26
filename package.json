@@ -1,0 +1,12 @@
+{
+  "name": "bytecoder-question-paper-generator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node frontend/ai/aiserver.js",
+    "start": "node frontend/ai/aiserver.js",
+    "backend:dev": "npm run dev --prefix backend",
+    "backend:start": "npm run start --prefix backend"
+  }
+}

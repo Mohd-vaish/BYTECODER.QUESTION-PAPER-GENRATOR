@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Question Paper Generator</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="top">
+      <div class="brand">ByteCoder</div>
+      <h1 class="title">Professional Question Paper Generator</h1>
+    </header>
+
+    <section class="controls">
+      <div class="grid">
+        <div class="field">
+          <label>Institute</label>
+          <input id="institute" type="text" placeholder="Institute name">
+        </div>
+        <div class="field">
+          <label>Exam Title</label>
+          <input id="title" type="text" placeholder="Mid Term Exam">
+        </div>
+        <div class="field">
+          <label>Duration</label>
+          <input id="duration" type="text" placeholder="3 Hours">
+        </div>
+        <div class="field">
+          <label>Subject</label>
+          <select id="subject">
+            <option value="web">Web Development</option>
+            <option value="ds">Data Structures</option>
+            <option value="os">Operating Systems</option>
+            <option value="dbms">DBMS</option>
+            <option value="ml">Machine Learning</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Board</label>
+          <select id="board">
+            <option value="">None</option>
+            <option value="CBSE">CBSE</option>
+            <option value="ICSE">ICSE</option>
+            <option value="State">State Board</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Book</label>
+          <input id="book" type="text" placeholder="Book name (optional)">
+        </div>
+        <div class="field">
+          <label>Chapter</label>
+          <input id="chapter" type="text" placeholder="Chapter title/number (optional)">
+        </div>
+        <div class="field">
+          <label>Difficulty</label>
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Total Questions</label>
+          <input id="count" type="number" min="1" max="60" value="10">
+        </div>
+        <div class="field">
+          <label>Types</label>
+          <div class="types">
+            <label><input type="checkbox" id="type-mcq" checked> MCQ</label>
+            <label><input type="checkbox" id="type-short" checked> Short</label>
+            <label><input type="checkbox" id="type-long"> Long</label>
+          </div>
+        </div>
+        <div class="field span-2">
+          <label>General Instructions</label>
+          <textarea id="instructions" rows="3" placeholder="Attempt all questions. Neat handwriting. Diagrams where required."></textarea>
+        </div>
+        <div class="field span-2">
+          <label>Specific Topic (optional)</label>
+          <input id="topic" type="text" placeholder="e.g., Linked Lists, Flexbox, ACID">
+        </div>
+        <div class="field span-2">
+          <label>Additional Instructions (optional)</label>
+          <textarea id="addlInstructions" rows="3" placeholder="e.g., Use pen only, show steps, no calculators"></textarea>
+        </div>
+        <div class="field">
+          <label>Marks (MCQ/Short/Long)</label>
+          <input id="marks" type="text" placeholder="1/5/10">
+        </div>
+        <div class="field">
+          <label>Distribution (MCQ/Short/Long)</label>
+          <input id="distribution" type="text" placeholder="4/4/4">
+        </div>
+        <div class="field">
+          <label>Theme</label>
+          <select id="theme">
+            <option value="cream">Cream/Green/Red</option>
+            <option value="navy">Navy/Blue</option>
+            <option value="gray">Gray/Minimal</option>
+          </select>
+        </div>
+        <div class="field span-2">
+          <label>Watermark (print)</label>
+          <div class="types">
+            <label><input type="checkbox" id="wm-enable"> Enable</label>
+            <input id="wm-text" type="text" placeholder="Confidential • ByteCoder" style="flex:1">
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="generate">Generate</button>
+        <button id="video">Video Solutions</button>
+        <button id="print" class="secondary">Print/Export</button>
+        <button id="download-html">Download HTML</button>
+      </div>
+      <div id="status" class="status"></div>
+    </section>
+
+    <section id="paper-output" class="paper"></section>
+  </div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

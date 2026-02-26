@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "inputs": [
+    {
+      "id": "provider",
+      "type": "pickString",
+      "description": "Select AI provider",
+      "options": ["gemini", "openai", "local"],
+      "default": "gemini"
+    },
+    {
+      "id": "gemini_key",
+      "type": "promptString",
+      "description": "Enter GEMINI_API_KEY (kept local, not stored)"
+    },
+    {
+      "id": "openai_key",
+      "type": "promptString",
+      "description": "Enter OPENAI_API_KEY (kept local, not stored)"
+    },
+    {
+      "id": "port",
+      "type": "promptString",
+      "description": "Enter port (default 3000)",
+      "default": "3000"
+    }
+  ],
+  "tasks": [
+    {
+      "label": "Run Dev (Gemini)",
+      "type": "npm",
+      "script": "dev",
+      "problemMatcher": [],
+      "options": {
+        "env": {
+          "PROVIDER": "${input:provider}",
+          "GEMINI_API_KEY": "${input:gemini_key}",
+          "PORT": "${input:port}"
+        }
+      }
+    },
+    {
+      "label": "Run Dev (OpenAI)",
+      "type": "npm",
+      "script": "dev",
+      "problemMatcher": [],
+      "options": {
+        "env": {
+          "PROVIDER": "${input:provider}",
+          "OPENAI_API_KEY": "${input:openai_key}",
+          "PORT": "${input:port}"
+        }
+      }
+    },
+    {
+      "label": "Run Dev (Local Only)",
+      "type": "npm",
+      "script": "dev",
+      "problemMatcher": [],
+      "options": {
+        "env": {
+          "PROVIDER": "local",
+          "PORT": "${input:port}"
+        }
+      }
+    }
+  ]
+}

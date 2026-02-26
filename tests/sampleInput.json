@@ -1,0 +1,11 @@
+{
+  "institute": "ByteCoder Institute",
+  "title": "Mid Term Exam",
+  "duration": "3 Hours",
+  "subject": "ds",
+  "difficulty": "medium",
+  "count": 12,
+  "types": ["mcq", "short", "long"],
+  "instructions": "Attempt all questions. Draw diagrams where asked.",
+  "marks": { "mcq": 1, "short": 5, "long": 10 }
+}
