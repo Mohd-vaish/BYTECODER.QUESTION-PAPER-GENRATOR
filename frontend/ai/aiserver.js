@@ -212,8 +212,9 @@ const server = http.createServer(async (req, res) => {
     }
     const q = u.searchParams.get("q") || "";
     const lang = u.searchParams.get("lang") || "";
+    const channel = u.searchParams.get("channel") || "";
     const max = Math.min(parseInt(u.searchParams.get("max") || "10", 10) || 10, 25);
-    const full = encodeURIComponent(q + (lang ? " " + lang : ""));
+    const full = encodeURIComponent(q + (lang ? " " + lang : "") + (channel ? " " + channel : ""));
     const pathStr = `/youtube/v3/search?key=${encodeURIComponent(key)}&part=snippet&type=video&maxResults=${max}&q=${full}`;
     const options = {
       hostname: "www.googleapis.com",

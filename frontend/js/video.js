@@ -155,14 +155,30 @@ document.getElementById("copyLink").addEventListener("click", async () => {
 async function searchAPI() {
   const q = document.getElementById("q").value.trim();
   const lang = document.getElementById("lang").value;
-  const url = `/api/videos?q=${encodeURIComponent(q)}&lang=${encodeURIComponent(lang)}&max=10`;
+  const channel = document.getElementById("channel").value.trim();
+  const url = `/api/videos?q=${encodeURIComponent(q)}&lang=${encodeURIComponent(lang)}&channel=${encodeURIComponent(channel)}&max=10`;
   try {
     const res = await fetch(url);
-    if (!res.ok) return;
+    const statusEl = document.getElementById("status");
+    if (!res.ok) {
+      let msg = `HTTP ${res.status}`;
+      try {
+        const err = await res.json();
+        if (err?.error) msg = err.error;
+      } catch {}
+      statusEl.textContent = `Videos error: ${msg}`;
+      return;
+    }
     const data = await res.json();
     const items = data.items || [];
     const wrap = document.getElementById("results");
     wrap.innerHTML = "";
+    const statusEl2 = document.getElementById("status");
+    if (!items.length) {
+      statusEl2.textContent = "No videos found for this query.";
+    } else {
+      statusEl2.textContent = `Found ${items.length} videos`;
+    }
     items.forEach(it => {
       const item = document.createElement("div");
       item.className = "item";
